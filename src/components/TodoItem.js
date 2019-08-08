@@ -3,6 +3,13 @@ import React from 'react';
 import './TodoItem.css';
 
 function TodoItem(props){
+
+    const completedStyle = {
+        color: "#cdcdcd",
+        fontStyle: "italic",
+        textDecoration: "line-through"    
+    }
+
     return(
         <div className = "todo-item">
             <input 
@@ -21,7 +28,7 @@ function TodoItem(props){
                     forced to accept the event object.
                 */
             />
-            <p>{props.item.text}</p>
+            <p style = {props.item.completed ? completedStyle : null}>{props.item.text}</p>
         </div>
     )
 }
