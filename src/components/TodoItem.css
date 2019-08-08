@@ -19,3 +19,8 @@ input[type=checkbox] {
 input[type=checkbox]:focus {
     outline: 0;
 }
+
+input[type=text] {
+    border: none;
+    font-size: 30px;
+}

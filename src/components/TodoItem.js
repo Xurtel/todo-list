@@ -14,7 +14,6 @@ function TodoItem(props){
         <div className = "todo-item">
             <input 
                 type = "checkbox" 
-                //defaultChecked = {props.item.completed} // just another way to do all of this?
                 checked = {props.item.completed}
                 onChange = {() => props.handleChange(props.item.id)}
                 /* above, 
@@ -28,7 +27,9 @@ function TodoItem(props){
                     forced to accept the event object.
                 */
             />
-            <p style = {props.item.completed ? completedStyle : null}>{props.item.text}</p>
+
+            <input type = "text" onChange = {() => props.handleChange}/>
+            {/* <p style = {props.item.completed ? completedStyle : null}>{props.item.text}</p> */}
         </div>
     )
 }
