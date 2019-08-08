@@ -2,58 +2,25 @@ import React from 'react';
 
 import './App.css';
 
+import TodoList from './components/TodoList.js'
 import TodoItem from './components/TodoItem.js';
-import todosData from "./components/todosData"
 
 class App extends React.Component{
   constructor(){
     super()
     this.state = {
-      //todos: todosData
       todo: ""
     }
-    this.handleChange = this.handleChange.bind(this)
+    //this.handleChange = this.handleChange.bind(this)
   }
   
-  /*handleChange(id){
-    this.setState((prevState) => {  
-      const updatedData = prevState.todos.map((todo) => {
-        if (todo.id === id){
-          todo.completed = !todo.completed 
-          
-          //  above, 
-          //  - this is not good practice. don't directly modify the original todo object.
-          //  - should create a copy of the original todo before making any modifications.
-          
-        }
-        return todo // need to return b/c that's how the map() function works
-        // Whatever you return from the callback function is the value that will be 
-        // put into the new array at the same index as the item you're looking at from the original array.
-      })
-      return{
-        todos: updatedData
-      }
-    })
-  }*/
-
-  handleChange(event){
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-
 
   render(){
-    /*const todoItems = this.state.todos.map((item) => {
-      return(
-        <TodoItem key = {item.id} item = {item} handleChange = {this.handleChange}/>
-      )
-    })*/
-    let todoItems = <TodoItem handleChange = {this.handleChange} value = {this.state.todo}/>
+    //let todoItems = <TodoItem handleChange = {this.handleChange} value = {this.state.todo}/>
 
     return(
       <div className="todo-list">
-        {todoItems}
+        <TodoList/>
       </div>
     )
   }
