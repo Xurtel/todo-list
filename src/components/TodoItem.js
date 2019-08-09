@@ -2,11 +2,29 @@ import React from 'react';
 
 import './TodoItem.css';
 
+/*
+    Displays items
+*/
+
 class TodoItem extends React.Component{
+    constructor(props){
+        super(props)
+
+        this.createTasks = this.createTasks.bind(this)
+        this.delete = this.delete.bind(this)
+    }
+
 
     createTasks(item){
-        return <li key = {item.key}>{item.text}</li>
+        return <li  onClick = {() => this.delete(item.key)}
+                    key = {item.key}>{item.text}
+                </li>
     }
+
+    delete(key){
+        this.props.delete(key)
+    }
+
 
     render(){
         const todoEntries = this.props.entries

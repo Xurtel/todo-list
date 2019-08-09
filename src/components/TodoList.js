@@ -15,6 +15,7 @@ class TodoList extends React.Component{
         }
 
         this.addItem = this.addItem.bind(this)
+        this.deleteItem = this.deleteItem.bind(this)
     }
 
     addItem(event){
@@ -37,6 +38,16 @@ class TodoList extends React.Component{
         event.preventDefault(); // don't have everything reload in form
     }
 
+    deleteItem(key){
+        const filteredItems = this.state.items.filter((item) => {
+            return (item.key !== key)
+        })
+
+        this.setState({
+            items: filteredItems
+        })
+    }
+
     render(){
         return(
             <div className = "todoListMain">
@@ -50,7 +61,8 @@ class TodoList extends React.Component{
                     </form>
                 </div>
 
-                <TodoItem entries = {this.state.items}/>
+                <TodoItem entries = {this.state.items}
+                        delete = {this.deleteItem}/>
 
             </div>
         )
