@@ -1,10 +1,7 @@
 import React from 'react';
-
 import './TodoItem.css';
 
-/*
-    Displays items
-*/
+// Displays items
 
 class TodoItem extends React.Component{
     constructor(props){
@@ -12,17 +9,49 @@ class TodoItem extends React.Component{
 
         this.createTasks = this.createTasks.bind(this)
         this.delete = this.delete.bind(this)
+        this.edit = this.edit.bind(this)
     }
 
 
     createTasks(item){
-        return <li  onClick = {() => this.delete(item.key)}
-                    key = {item.key}>{item.text}
+        return (
+            <div className = "taskRow">
+                <li key = {item.key}>
+                    {console.log(item.key)}
+                    {item.text}        
+                    <button 
+                        onClick = {() => this.delete(item.key)}>
+                        Remove
+                    </button>    
+
+                    <button 
+                        onClick = {() => this.edit(item.key)}>
+                        Edit
+                    </button> 
                 </li>
+            </div>
+            
+        )
+        /*return <input type = "text" 
+                    value = {item.text}
+                    //onChange = {() => this.props.update(item.key)}
+        
+                    //onClick = {() => this.delete(item.key)}
+                    key = {item.key}
+                    onChange = {() => {
+                        console.log("changing text")
+                        this.update(item.key)
+                    }}>
+                </input>*/
     }
 
     delete(key){
-        this.props.delete(key)
+        this.props.handleDelete(key)
+    }
+
+    edit(key){
+        
+        this.props.handleEdit(key)
     }
 
 

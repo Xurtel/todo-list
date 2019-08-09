@@ -24,3 +24,12 @@ input[type=text] {
     border: none;
     font-size: 30px;
 }
+
+.taskRow button{
+    float: right;  
+    font-size: 14px;
+}
+
+.taskRow button:hover{
+    cursor: pointer
+}
